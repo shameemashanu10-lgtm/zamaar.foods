@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zamaar Foods | Cakes & Puddings</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8f2;
+            color: #3b2118;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #7b3f2b;
+        }
+
+        .logo span {
+            color: #d28b61;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3b2118;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #c56f45;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 130px 7% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text small {
+            color: #c56f45;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hero-text h1 {
+            font-size: 65px;
+            line-height: 1.05;
+            margin: 15px 0;
+        }
+
+        .hero-text h1 span {
+            color: #c56f45;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #6d554c;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #7b3f2b;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #c56f45;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 45%;
+            min-height: 430px;
+            border-radius: 30px;
+            background:
+                linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
+                url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* PRODUCTS */
+        .products {
+            padding: 90px 7%;
+            text-align: center;
+            background: #fff;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #806c63;
+            margin-bottom: 45px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: #fff8f2;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-image {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cake {
+            background-image: url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .pudding {
+            background-image: url("https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            color: #806c63;
+            line-height: 1.6;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 90px 7%;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 20px auto;
+            color: #6d554c;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* ORDER */
+        .order {
+            padding: 80px 7%;
+            text-align: center;
+            background: #7b3f2b;
+            color: white;
+        }
+
+        .order h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .order p {
+            margin-bottom: 25px;
+        }
+
+        .order .btn {
+            background: white;
+            color: #7b3f2b;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #2c1811;
+            color: white;
+        }
+
+        footer span {
+            color: #e0a17a;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .hero-text h1 {
+                font-size: 45px;
+            }
+
+            .hero-image {
+                width: 100%;
+                min-height: 350px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            ZAMAAR <span>FOODS</span>
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#order">Order</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <small>WELCOME TO ZAMAAR FOODS</small>
+
+            <h1>
+                Sweet moments,<br>
+                <span>made delicious.</span>
+            </h1>
+
+            <p>
+                Freshly prepared cakes and creamy puddings,
+                made with care for every sweet moment.
+            </p>
+
+            <a href="#menu" class="btn">
+                Explore Our Menu
+            </a>
+
+        </div>
+
+        <div class="hero-image"></div>
+
+    </section>
+
+
+    <!-- MENU -->
+    <section class="products" id="menu">
+
+        <h2 class="section-title">
+            Our Specialties
+        </h2>
+
+        <p class="section-subtitle">
+            Simple ingredients. Delicious results.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-image cake"></div>
+
+                <div class="card-content">
+
+                    <h3>🎂 Cakes</h3>
+
+                    <p>
+                        Soft, delicious cakes made for birthdays,
+                        celebrations and everyday cravings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image pudding"></div>
+
+                <div class="card-content">
+
+                    <h3>🍮 Puddings</h3>
+
+                    <p>
+                        Smooth and creamy puddings prepared
+                        for the perfect sweet treat.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            Why Zamaar Foods?
+        </h2>
+
+        <p>
+            At Zamaar Foods, we believe that desserts are more
+            than just food — they're part of the moments we
+            remember. We focus on cakes and puddings that are
+            freshly prepared and made with care.
+        </p>
+
+    </section>
+
+
+    <!-- ORDER -->
+    <section class="order" id="order">
+
+        <h2>Ready for something sweet? 🍰</h2>
+
+        <p>
+            Place your order and make your next moment delicious.
+        </p>
+
+        <a href="https://api.whatsapp.com/send?phone=918606534727&text=Hi%20Zamaar%20Foods!%20I%20would%20like%20to%20place%20an%20order."
+   class="btn"
+   target="_blank">
+    💬 Order on WhatsApp
+        </a>
+        </>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 <span>Zamaar Foods</span>.
+        All Rights Reserved.
+
+    </footer>
+
+</body>
+</html>
